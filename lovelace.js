@@ -48,20 +48,6 @@ function append_cupcake(td, i) {
     // Create container for layered images
     const container = document.createElement('div');
     container.className = 'cupcake_container';
-
-    // Add base cupcake image
-    const base_img = document.createElement('img');
-    base_img.src = 'images/cupcake_base.png';
-    base_img.className = 'cupcake_base';
-    container.appendChild(base_img);
-
-    // Add frosting layer
-    const frosting_img = document.createElement('img');
-    frosting_img.src = 'images/cupcake_frosting.png';
-    frosting_img.id = 'cupcake_frosting' + i;
-    frosting_img.className = 'cupcake_frosting';
-    container.appendChild(frosting_img);
-
     td.appendChild(container);
 
     // Add name
