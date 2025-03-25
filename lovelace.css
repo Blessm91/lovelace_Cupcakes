@@ -7,10 +7,6 @@
   --secondary_light: rgb(234, 235, 250);
 }
 
-h1 {
-  color: var(--primary_dark);
-}
-
 table,
 th,
 td {
@@ -27,20 +23,21 @@ tr:nth-child(even) {
   background-color: var(--secondary_light);
   padding: 10px;
   margin: 10px;
-  text-align: center;  /* Centers the content */
+  text-align: center; /* Centers the content */
 }
 
 h1 {
   color: var(--primary_dark);
-  font-size: 48px;     /* Larger font size */
-  text-align: center;  /* Centers the header */
+  font-size: 48px; /* Larger font size */
+  text-align: center; /* Centers the header */
   margin-bottom: 30px; /* Adds space below header */
 }
 
-#ada_lovelace, .white_cupcake {
-  display: inline-block;  /* Helps with centering */
+#ada_lovelace,
+.white_cupcake {
+  display: inline-block; /* Helps with centering */
   vertical-align: middle; /* Aligns images */
-  margin: 0 20px;        /* Adds space between images */
+  margin: 0 20px; /* Adds space between images */
 }
 
 #message_area {
