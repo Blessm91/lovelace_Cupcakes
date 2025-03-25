@@ -42,11 +42,43 @@ function make_header(table) {
     table.appendChild(thead);
 }
 
+function append_cupcake(td, i) {
+    const cupcake = cupcake_data[i];
+
+    // Create container for layered images
+    const container = document.createElement('div');
+    container.className = 'cupcake_container';
+
+    // Add base cupcake image
+    const base_img = document.createElement('img');
+    base_img.src = 'images/cupcake_base.png';
+    base_img.className = 'cupcake_base';
+    container.appendChild(base_img);
+
+    // Add frosting layer
+    const frosting_img = document.createElement('img');
+    frosting_img.src = 'images/cupcake_frosting.png';
+    frosting_img.id = 'cupcake_frosting' + i;
+    frosting_img.className = 'cupcake_frosting';
+    container.appendChild(frosting_img);
+
+    td.appendChild(container);
+
+    // Add name
+    const name_div = document.createElement('div');
+    name_div.id = 'cupcake_name' + i;
+    name_div.className = 'cupcake_name';
+    const p = document.createElement('span');
+    p.textContent = cupcake.name;
+    name_div.appendChild(p);
+    td.appendChild(name_div);
+}
+
 function color_frosting(i, frosting_index) {
     const frosting_elem = document.getElementById('cupcake_frosting' + i);
     const frosting = cupcake_data[i].frosting[frosting_index];
     const [r, g, b] = frosting.color;
-    frosting_elem.style.backgroundColor = `rgb(${r},${g},${b})`;
+    frosting_elem.style.filter = `opacity(0.7) drop-shadow(0 0 0 rgb(${r},${g},${b}))`;
 }
 
 function make_frosting_cell(i) {
@@ -77,39 +109,6 @@ function make_frosting_cell(i) {
     }
     td.appendChild(select);
     return td;
-}
-
-function append_cupcake(td, i) {
-    // -----------------
-    // |    frosting   |
-    // -----------------
-    // |    cupcake    |
-    // -----------------
-    // |      name     |
-    // -----------------
-    const cupcake = cupcake_data[i];
-
-    // add frosting
-    const div_frosting = document.createElement('div');
-    div_frosting.id = 'cupcake_frosting' + i;
-    div_frosting.className = 'cupcake_frosting';
-    div_frosting.style.backgroundColor = 'white';
-    td.appendChild(div_frosting);
-
-    const div_cake = document.createElement('div');
-    div_cake.id = 'cupcake_cake' + i;
-    div_cake.className = 'cupcake_cake';
-    const [r, g, b] = cupcake.color;
-    div_cake.style.backgroundColor = `rgb(${r},${g},${b})`;
-    td.appendChild(div_cake);
-
-    const name_div = document.createElement('div');
-    name_div.id = 'cupcake_name' + i;
-    name_div.className = 'cupcake_name';
-    const p = document.createElement('span');
-    p.textContent = cupcake.name;
-    name_div.appendChild(p);
-    td.appendChild(name_div);
 }
 
 function make_row(i, tbody) {
