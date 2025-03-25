@@ -126,9 +126,11 @@ function make_row(i, tbody) {
     td = make_frosting_cell(i);
     tr.appendChild(td);
 
-    /*
-     * STUDENTS SHOULD ADD CODE HERE FOR THE PRICE AND QUANTITY CELLS FOR PART 1 OF THE ASSIGNMENT
-     */
+    // TODO: Still need to add quantity cell
+    // Add price cell
+    td = document.createElement('td');
+    td.textContent = '$' + cupcake_data[i].price;
+    tr.appendChild(td);
 
     tbody.appendChild(tr);
 }
