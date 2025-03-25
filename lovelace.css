@@ -90,3 +90,10 @@ h1 {
     width: 150px; /* Reduced from 300px */
     height: 150px; /* Reduced from 300px */
 }
+
+.cupcake_container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
