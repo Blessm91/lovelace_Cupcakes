@@ -32,9 +32,12 @@ function make_header(table) {
     th = document.createElement('th');
     th.textContent = 'Frosting';
     tr.appendChild(th);
-    /*
-     * STUDENTS SHOULD ADD CODE HERE FOR THE PRICE AND QUANTITY COLUMN HEADERS FOR PART 1 OF THE ASSIGNMENT
-     */
+    
+    // Add price column header
+    th = document.createElement('th');
+    th.textContent = 'Price';
+    tr.appendChild(th);
+    
     thead.appendChild(tr);
     table.appendChild(thead);
 }
