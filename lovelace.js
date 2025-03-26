@@ -32,12 +32,12 @@ function make_header(table) {
     th = document.createElement('th');
     th.textContent = 'Frosting';
     tr.appendChild(th);
-    
+
     // Add price column header
     th = document.createElement('th');
     th.textContent = 'Price';
     tr.appendChild(th);
-    
+
     thead.appendChild(tr);
     table.appendChild(thead);
 }
@@ -61,7 +61,7 @@ function append_cupcake(td, i) {
     frosting_img.id = 'cupcake_frosting' + i;
     frosting_img.className = 'cupcake_frosting';
     container.appendChild(frosting_img);
-    
+
     td.appendChild(container);
 
     // Add name
@@ -155,3 +155,88 @@ function display_cupcakes() {
     div.appendChild(form);
     document.body.appendChild(div);
 }
+
+// Color change functionality
+document.getElementById('frostingType').addEventListener('change', function () {
+    const frosting = document.querySelector('.cupcake_frosting');
+    switch (this.value) {
+        case 'fondant':
+            // Blue Fondant color
+            frosting.style.filter = 'hue-rotate(240deg) saturate(150%)';
+            break;
+        case 'cream':
+            // Buttercream color
+            frosting.style.filter = 'hue-rotate(60deg) saturate(90%)';
+            break;
+        case 'chocolate':
+            // Chocolate color
+            frosting.style.filter =
+                'hue-rotate(30deg) saturate(170%) brightness(40%)';
+            break;
+        case 'special':
+            // Purple Fondant color
+            frosting.style.filter = 'hue-rotate(300deg) saturate(200%)';
+            break;
+    }
+});
+
+document.getElementById('breadType').addEventListener('change', function () {
+    const base = document.querySelector('.cupcake_base');
+    switch (this.value) {
+        case 'fruitcake':
+            // Reddish brown
+            base.style.filter =
+                'hue-rotate(30deg) saturate(150%) brightness(70%)';
+            break;
+        case 'chocolate':
+            // Dark brown
+            base.style.filter =
+                'hue-rotate(20deg) saturate(120%) brightness(40%)';
+            break;
+        case 'vanilla':
+            // Light cream
+            base.style.filter =
+                'hue-rotate(60deg) saturate(20%) brightness(150%)';
+            break;
+        case 'berry':
+            // Deep purple-red
+            base.style.filter =
+                'hue-rotate(320deg) saturate(180%) brightness(80%)';
+            break;
+        case 'brownie':
+            // Dark chocolate brown
+            base.style.filter =
+                'hue-rotate(30deg) saturate(140%) brightness(30%)';
+            break;
+    }
+});
+
+document.getElementById('wrapperType').addEventListener('change', function () {
+    const wrapper = document.querySelector('.cupcake_wrapper');
+    switch (this.value) {
+        case 'red':
+            wrapper.style.filter =
+                'hue-rotate(325deg) saturate(500%) brightness(80%) contrast(100%)';
+            break;
+        case 'orange':
+            wrapper.style.filter =
+                'hue-rotate(10deg) saturate(200%) brightness(100%)';
+            break;
+        case 'yellow':
+            wrapper.style.filter =
+                'hue-rotate(45deg) saturate(200%) brightness(110%)';
+            break;
+        case 'green':
+            wrapper.style.filter =
+                'hue-rotate(85deg) saturate(200%) brightness(90%)';
+            break;
+        case 'blue':
+            wrapper.style.filter =
+                'hue-rotate(180deg) saturate(200%) brightness(100%)';
+            break;
+        case 'purple':
+            wrapper.style.filter =
+                'hue-rotate(260deg) saturate(200%) brightness(90%)';
+            break;
+    }
+});

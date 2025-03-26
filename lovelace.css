@@ -21,23 +21,42 @@ tr:nth-child(even) {
 .separator {
     border: 2px solid var(--primary_dark);
     background-color: var(--secondary_light);
-    padding: 10px;
+    padding: 20px;
+    margin: 10px auto;
+    text-align: center;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+#ada_lovelace {
+    width: 400px;
+    height: 400px;
+    border: 20px solid var(--primary_medium);
+    border-radius: 10px;
     margin: 10px;
-    text-align: center; /* Centers the content */
+    background-color: var(--secondary_light);
+}
+
+.white_cupcake {
+    width: 200px;
+    height: 200px;
+}
+
+.header {
+    text-align: center;  /* Centers the content */
 }
 
 h1 {
     color: var(--primary_dark);
-    font-size: 60px; /* Larger font size */
-    text-align: center; /* Centers the header */
+    font-size: 48px;     /* Larger font size */
+    text-align: center;  /* Centers the header */
     margin-bottom: 30px; /* Adds space below header */
 }
 
-#ada_lovelace,
-.white_cupcake {
-    display: inline-block; /* Helps with centering */
+#ada_lovelace, .white_cupcake {
+    display: inline-block;  /* Helps with centering */
     vertical-align: middle; /* Aligns images */
-    margin: 0 20px; /* Adds space between images */
+    margin: 0 20px;        /* Adds space between images */
 }
 
 #message_area {
@@ -98,7 +117,8 @@ h1 {
     margin: 0 auto;
 }
 
-.cupcake_base, .cupcake_frosting {
+.cupcake_base,
+.cupcake_frosting {
     position: absolute;
     top: 0;
     left: 0;
@@ -109,5 +129,134 @@ h1 {
 
 .cupcake_name {
     text-align: center;
-    margin-top: 110px;  /* Adjusted to match new container size */
+    margin-top: 110px; /* Adjusted to match new container size */
+}
+
+.custom-cupcake-display {
+    width: 450px; /* Matches Ada's image size */
+    height: 450px;
+    margin: 0 auto 30px;
+    border: 20px solid var(--primary_medium);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--secondary_light);
+}
+
+.large-cupcake {
+    width: 400px;
+    height: 400px;
+    margin: 25px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.large-cupcake img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.large-cupcake .cupcake_base {
+    z-index: 1;
+}
+
+.large-cupcake .cupcake_frosting {
+    z-index: 2;
+}
+
+.large-cupcake .cupcake_wrapper {
+    z-index: 3;
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%); /* This will show only the bottom half */
+}
+
+.large-cupcake .cupcake_frosting {
+    z-index: 2;
+    filter: hue-rotate(0deg);
+    transition: filter 0.3s ease;
+}
+
+.large-cupcake .cupcake_base {
+    z-index: 1;
+    filter: hue-rotate(0deg);
+    transition: filter 0.3s ease;
+}
+
+.large-cupcake .frosting {
+    width: 320px;
+    height: 200px;
+    background-color: var(--primary_light);
+    border-radius: 160px 160px 80px 80px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    border: 2px solid var(--primary_medium);
+}
+
+.large-cupcake .base {
+    width: 280px;
+    height: 220px;
+    background-color: var(--primary_medium);
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+    border-radius: 30px 30px 80px 80px;
+    border: 2px solid var(--primary_dark);
+}
+
+.large-cupcake .wrapper {
+    width: 300px;
+    height: 100px;
+    background-color: var(--secondary_light);
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    border-radius: 0 0 30px 30px;
+    border: 2px solid var(--secondary_dark);
+}
+
+.controls-container {
+    background-color: var(--secondary_light);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--primary_medium);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary_dark);
+    background-color: var(--primary_medium);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.selection-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.selection-controls select {
+    width: 200px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid var(--primary_medium);
+    background-color: white;
+    margin: 5px 0;
 }
