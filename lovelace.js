@@ -211,20 +211,18 @@ document.getElementById('breadType').addEventListener('change', function () {
     }
 });
 
+// First, add the new options to the HTML select element
 document.getElementById('wrapperType').addEventListener('change', function () {
     const wrapper = document.querySelector('.cupcake_wrapper');
     switch (this.value) {
         case 'red':
-            wrapper.style.filter =
-                'hue-rotate(325deg) saturate(500%) brightness(80%) contrast(100%)';
+            wrapper.style.filter = 'hue-rotate(345deg) saturate(450%) brightness(65%) contrast(130%)';
             break;
         case 'orange':
-            wrapper.style.filter =
-                'hue-rotate(10deg) saturate(200%) brightness(100%)';
+            wrapper.style.filter = 'hue-rotate(15deg) saturate(400%) brightness(95%) contrast(140%)';
             break;
         case 'yellow':
-            wrapper.style.filter =
-                'hue-rotate(45deg) saturate(200%) brightness(110%)';
+            wrapper.style.filter = 'hue-rotate(25deg) saturate(400%) brightness(115%) contrast(130%)';
             break;
         case 'green':
             wrapper.style.filter =
@@ -237,6 +235,24 @@ document.getElementById('wrapperType').addEventListener('change', function () {
         case 'purple':
             wrapper.style.filter =
                 'hue-rotate(260deg) saturate(200%) brightness(90%)';
+            break;
+        case 'white':
+            wrapper.style.filter = 'brightness(150%) saturate(0%) contrast(90%)';
+            break;
+        case 'black':
+            wrapper.style.filter = 'brightness(40%) saturate(0%) contrast(150%)';
+            break;
+        case 'darkpurple':
+            wrapper.style.filter = 'hue-rotate(280deg) saturate(400%) brightness(60%) contrast(140%)';
+            break;
+        case 'navyblue':
+            wrapper.style.filter = 'hue-rotate(210deg) saturate(400%) brightness(55%) contrast(140%)';
+            break;
+        case 'lightpink':
+            wrapper.style.filter = 'hue-rotate(320deg) saturate(200%) brightness(115%) contrast(110%)';
+            break;
+        case 'darkmagenta':
+            wrapper.style.filter = 'hue-rotate(290deg) saturate(400%) brightness(75%) contrast(130%)';
             break;
     }
 });
