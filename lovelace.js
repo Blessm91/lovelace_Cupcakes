@@ -156,63 +156,81 @@ function display_cupcakes() {
     document.body.appendChild(div);
 }
 
+// Frosting color change
 // Color change functionality
 document.getElementById('frostingType').addEventListener('change', function () {
     const frosting = document.querySelector('.cupcake_frosting');
     switch (this.value) {
+        case 'blue_fondant':
+            frosting.style.filter = 'hue-rotate(240deg) saturate(150%)';
+            frosting.style.transform = 'translateY(20px)';  // Add this line
+            break;
         case 'fondant':
-            // Blue Fondant color
             frosting.style.filter = 'hue-rotate(240deg) saturate(150%)';
             break;
         case 'cream':
-            // Buttercream color
             frosting.style.filter = 'hue-rotate(60deg) saturate(90%)';
             break;
         case 'chocolate':
-            // Chocolate color
-            frosting.style.filter =
-                'hue-rotate(30deg) saturate(170%) brightness(40%)';
+            frosting.style.filter = 'hue-rotate(30deg) saturate(170%) brightness(40%)';
             break;
-        case 'special':
-            // Purple Fondant color
-            frosting.style.filter = 'hue-rotate(300deg) saturate(200%)';
+        case 'cream_cheese':
+            frosting.style.filter = 'hue-rotate(45deg) saturate(50%) brightness(130%)';
+            break;
+        case 'fudge':
+            frosting.style.filter = 'hue-rotate(20deg) saturate(150%) brightness(30%)';
+            break;
+        case 'ganache':
+            frosting.style.filter = 'hue-rotate(25deg) saturate(160%) brightness(35%)';
+            break;
+        case 'lemon_meringue':
+            frosting.style.filter = 'hue-rotate(65deg) saturate(120%) brightness(120%)';
+            break;
+        case 'pink_fondant':
+            frosting.style.filter = 'hue-rotate(320deg) saturate(150%)';
+            break;
+        case 'purple_fondant':
+            frosting.style.filter = 'hue-rotate(280deg) saturate(150%)';
+            break;
+        case 'red_fondant':
+            frosting.style.filter = 'hue-rotate(350deg) saturate(150%)';
+            break;
+        case 'whipped_cream':
+            frosting.style.filter = 'brightness(120%) saturate(50%)';
+            break;
+        case 'white_fondant':
+            frosting.style.filter = 'brightness(110%) saturate(70%)';
+            break;
+        default:
+            frosting.style.transform = 'none';  // Reset position for other frostings
             break;
     }
 });
 
-document.getElementById('breadType').addEventListener('change', function () {
+// Bread base color change
+document.getElementById('breadType').addEventListener('change', function() {
     const base = document.querySelector('.cupcake_base');
     switch (this.value) {
         case 'fruitcake':
-            // Reddish brown
-            base.style.filter =
-                'hue-rotate(30deg) saturate(150%) brightness(70%)';
+            base.style.filter = 'hue-rotate(30deg) saturate(150%) brightness(70%)';
             break;
         case 'chocolate':
-            // Dark brown
-            base.style.filter =
-                'hue-rotate(20deg) saturate(120%) brightness(40%)';
+            base.style.filter = 'hue-rotate(20deg) saturate(120%) brightness(40%)';
             break;
         case 'vanilla':
-            // Light cream
-            base.style.filter =
-                'hue-rotate(60deg) saturate(20%) brightness(150%)';
+            base.style.filter = 'hue-rotate(60deg) saturate(20%) brightness(150%)';
             break;
         case 'berry':
-            // Deep purple-red
-            base.style.filter =
-                'hue-rotate(320deg) saturate(180%) brightness(80%)';
+            base.style.filter = 'hue-rotate(320deg) saturate(180%) brightness(80%)';
             break;
         case 'brownie':
-            // Dark chocolate brown
-            base.style.filter =
-                'hue-rotate(30deg) saturate(140%) brightness(30%)';
+            base.style.filter = 'hue-rotate(30deg) saturate(140%) brightness(30%)';
             break;
     }
 });
 
-// First, add the new options to the HTML select element
-document.getElementById('wrapperType').addEventListener('change', function () {
+// Wrapper color change
+document.getElementById('wrapperType').addEventListener('change', function() {
     const wrapper = document.querySelector('.cupcake_wrapper');
     switch (this.value) {
         case 'red':
@@ -225,16 +243,13 @@ document.getElementById('wrapperType').addEventListener('change', function () {
             wrapper.style.filter = 'hue-rotate(25deg) saturate(400%) brightness(115%) contrast(130%)';
             break;
         case 'green':
-            wrapper.style.filter =
-                'hue-rotate(85deg) saturate(200%) brightness(90%)';
+            wrapper.style.filter = 'hue-rotate(85deg) saturate(200%) brightness(90%)';
             break;
         case 'blue':
-            wrapper.style.filter =
-                'hue-rotate(180deg) saturate(200%) brightness(100%)';
+            wrapper.style.filter = 'hue-rotate(180deg) saturate(200%) brightness(100%)';
             break;
         case 'purple':
-            wrapper.style.filter =
-                'hue-rotate(260deg) saturate(200%) brightness(90%)';
+            wrapper.style.filter = 'hue-rotate(260deg) saturate(200%) brightness(90%)';
             break;
         case 'white':
             wrapper.style.filter = 'brightness(150%) saturate(0%) contrast(90%)';
@@ -242,14 +257,14 @@ document.getElementById('wrapperType').addEventListener('change', function () {
         case 'black':
             wrapper.style.filter = 'brightness(40%) saturate(0%) contrast(150%)';
             break;
+        case 'lightpink':
+            wrapper.style.filter = 'hue-rotate(320deg) saturate(200%) brightness(115%) contrast(110%)';
+            break;
         case 'darkpurple':
             wrapper.style.filter = 'hue-rotate(280deg) saturate(400%) brightness(60%) contrast(140%)';
             break;
         case 'navyblue':
             wrapper.style.filter = 'hue-rotate(210deg) saturate(400%) brightness(55%) contrast(140%)';
-            break;
-        case 'lightpink':
-            wrapper.style.filter = 'hue-rotate(320deg) saturate(200%) brightness(115%) contrast(110%)';
             break;
         case 'darkmagenta':
             wrapper.style.filter = 'hue-rotate(290deg) saturate(400%) brightness(75%) contrast(130%)';

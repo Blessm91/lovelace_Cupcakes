@@ -1,109 +1,134 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Ada Lovelace's Cupcake Shop</title>
-    <link rel="stylesheet" href="lovelace.css">
-</head>
-<body>
-    <!-- Fix header images -->
-    <div class="separator">
-        <h1>Lovelace Cupcakes</h1>
-        <img
-            id="white_cupcake1"
-            class="white_cupcake"
-            src="images/white_cupcake.png"
-            alt="White Cupcake"
-            width="200"
-            height="200"
-        />
-        <img
-            id="ada_lovelace"
-            src="images/ada_lovelace.png"
-            alt="Ada Lovelace"
-            width="400"
-            height="400"
-        />
-        <img
-            id="white_cupcake2"
-            class="white_cupcake"
-            src="images/white_cupcake.png"
-            alt="White Cupcake"
-            width="200"
-            height="200"
-        />
-    </div>
-
-    <!-- Fix custom cupcake display -->
-    <div class="custom-cupcake-display">
-        <div class="large-cupcake">
-            <img class="cupcake_frosting" src="images/cupcake_frosting.png" alt="Cupcake Frosting">
-            <img class="cupcake_base" src="images/cupcake_base.png" alt="Cupcake Base">
-            <img class="cupcake_wrapper" src="images/cupcake_wrapper.png" alt="Cupcake Wrapper">
+    <head>
+        <title>Ada Lovelace's Cupcake Shop</title>
+        <link rel="stylesheet" href="lovelace.css" />
+    </head>
+    <body>
+        <!-- Fix header images -->
+        <div class="separator">
+            <h1>Lovelace Cupcakes</h1>
+            <img
+                id="white_cupcake1"
+                class="white_cupcake"
+                src="images/white_cupcake.png"
+                alt="White Cupcake"
+                width="200"
+                height="200"
+            />
+            <img
+                id="ada_lovelace"
+                src="images/ada_lovelace.png"
+                alt="Ada Lovelace"
+                width="400"
+                height="400"
+            />
+            <img
+                id="white_cupcake2"
+                class="white_cupcake"
+                src="images/white_cupcake.png"
+                alt="White Cupcake"
+                width="200"
+                height="200"
+            />
         </div>
-    </div>
 
-    <div class="controls-container">
-        <div class="price-section separator">
-            <div class="base-price">
-                <label>Base Price:</label>
-                <span id="basePrice" class="total_values">$0.00</span>
-            </div>
-            
-            <div class="quantity-controls">
-                <button class="qty-btn" id="decreaseQty">-</button>
-                <span id="qtyDisplay" class="total_values">1</span>
-                <button class="qty-btn" id="increaseQty">+</button>
-            </div>
-
-            <div class="total-price">
-                <label>Total:</label>
-                <span id="totalPrice" class="total_values">$0.00</span>
+        <!-- Fix custom cupcake display -->
+        <div class="custom-cupcake-display">
+            <div class="large-cupcake">
+                <img
+                    class="cupcake_frosting"
+                    src="images/cupcake_frosting.png"
+                    alt="Cupcake Frosting"
+                />
+                <img
+                    class="cupcake_base"
+                    src="images/cupcake_base.png"
+                    alt="Cupcake Base"
+                />
+                <img
+                    class="cupcake_wrapper"
+                    src="images/cupcake_wrapper.png"
+                    alt="Cupcake Wrapper"
+                />
             </div>
         </div>
 
-        <div class="selection-controls separator">
-            <div class="frosting-select">
-                <label for="frostingType">Frosting Type:</label>
-                <select id="frostingType">
-                    <option value="fondant">Fondant</option>
-                    <option value="cream">Cream</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="special">Special</option>
-                </select>
+        <div class="controls-container">
+            <div class="price-section separator">
+                <div class="base-price">
+                    <label>Base Price:</label>
+                    <span id="basePrice" class="total_values">$0.00</span>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="qty-btn" id="decreaseQty">-</button>
+                    <span id="qtyDisplay" class="total_values">1</span>
+                    <button class="qty-btn" id="increaseQty">+</button>
+                </div>
+
+                <div class="total-price">
+                    <label>Total:</label>
+                    <span id="totalPrice" class="total_values">$0.00</span>
+                </div>
             </div>
 
-            <div class="bread-select">
-                <label for="breadType">Bread Type:</label>
-                <select id="breadType">
-                    <option value="fruitcake">Fruit Cake</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="vanilla">Vanilla</option>
-                    <option value="berry">Berry</option>
-                    <option value="brownie">Brownie</option>
-                </select>
-            </div>
+            <div class="selection-controls separator">
+                <div class="frosting-select">
+                    <label for="frostingType">Frosting Type:</label>
+                    <select id="frostingType">
+                        <option value="blue_fondant">Blue Fondant</option>
+                        <option value="buttercream">Buttercream</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="cream_cheese">Cream Cheese</option>
+                        <option value="fudge">Fudge</option>
+                        <option value="ganache">Ganache</option>
+                        <option value="lemon_meringue">Lemon Meringue</option>
+                        <option value="pink_fondant">Pink Fondant</option>
+                        <option value="purple_fondant">Purple Fondant</option>
+                        <option value="red_fondant">Red Fondant</option>
+                        <option value="whipped_cream">Whipped Cream</option>
+                        <option value="white_fondant">White Fondant</option>
+                    </select>
+                </div>
 
-            <div class="wrapper-select">
-                <label for="wrapperType">Wrapper Color:</label>
-                <select id="wrapperType">
-                    <option value="red">Red</option>
-                    <option value="orange">Orange</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
-                    <option value="purple">Purple</option>
-                    <option value="white">White</option>
-                    <option value="black">Black</option>
-                    <option value="lightpink">Light Pink</option>
-                    <option value="darkpurple">Dark Purple</option>
-                    <option value="navyblue">Deep Dark Blue</option>
-                    <option value="darkmagenta">Dark Magenta</option>
-                </select>
+                <div class="bread-select">
+                    <label for="breadType">Bread Type:</label>
+                    <select id="breadType">
+                        <option value="fruitcake">Fruit Cake</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="vanilla">Vanilla</option>
+                        <option value="berry">Berry</option>
+                        <option value="brownie">Brownie</option>
+                    </select>
+
+                    <label for="breadSubType">Variety:</label>
+                    <select id="breadSubType" disabled>
+                        <option value="">Select bread type first</option>
+                    </select>
+                </div>
+
+                <div class="wrapper-select">
+                    <label for="wrapperType">Wrapper Color:</label>
+                    <select id="wrapperType">
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                        <option value="purple">Purple</option>
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="lightpink">Light Pink</option>
+                        <option value="darkpurple">Dark Purple</option>
+                        <option value="navyblue">Deep Dark Blue</option>
+                        <option value="darkmagenta">Dark Magenta</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="cupcake.js"></script>
-    <script src="lovelace.js"></script>
-</body>
+        <script src="cupcake.js"></script>
+        <script src="lovelace.js"></script>
+    </body>
 </html>
