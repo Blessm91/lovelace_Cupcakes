@@ -158,116 +158,315 @@ function display_cupcakes() {
 
 // Frosting color change
 // Color change functionality
+// Frosting color change
 document.getElementById('frostingType').addEventListener('change', function () {
     const frosting = document.querySelector('.cupcake_frosting');
-    switch (this.value) {
-        case 'blue_fondant':
-            frosting.style.filter = 'hue-rotate(240deg) saturate(150%)';
-            frosting.style.transform = 'translateY(20px)';  // Add this line
-            break;
-        case 'fondant':
-            frosting.style.filter = 'hue-rotate(240deg) saturate(150%)';
-            break;
-        case 'cream':
-            frosting.style.filter = 'hue-rotate(60deg) saturate(90%)';
-            break;
-        case 'chocolate':
-            frosting.style.filter = 'hue-rotate(30deg) saturate(170%) brightness(40%)';
-            break;
-        case 'cream_cheese':
-            frosting.style.filter = 'hue-rotate(45deg) saturate(50%) brightness(130%)';
-            break;
-        case 'fudge':
-            frosting.style.filter = 'hue-rotate(20deg) saturate(150%) brightness(30%)';
-            break;
-        case 'ganache':
-            frosting.style.filter = 'hue-rotate(25deg) saturate(160%) brightness(35%)';
-            break;
-        case 'lemon_meringue':
-            frosting.style.filter = 'hue-rotate(65deg) saturate(120%) brightness(120%)';
-            break;
-        case 'pink_fondant':
-            frosting.style.filter = 'hue-rotate(320deg) saturate(150%)';
-            break;
-        case 'purple_fondant':
-            frosting.style.filter = 'hue-rotate(280deg) saturate(150%)';
-            break;
-        case 'red_fondant':
-            frosting.style.filter = 'hue-rotate(350deg) saturate(150%)';
-            break;
-        case 'whipped_cream':
-            frosting.style.filter = 'brightness(120%) saturate(50%)';
-            break;
-        case 'white_fondant':
-            frosting.style.filter = 'brightness(110%) saturate(70%)';
-            break;
-        default:
-            frosting.style.transform = 'none';  // Reset position for other frostings
-            break;
+
+    // Check if the selected frosting contains "fondant"
+    if (this.value.includes('fondant')) {
+        // Swap to blue fondant image
+        frosting.src = 'images/blue_fondant.png';
+        // Lower the fondant image by 20 pixels
+        frosting.style.transform = 'translateY(20px)';
+        // Reset any filters
+        frosting.style.filter = 'none';
+    } else if (this.value === 'buttercream') {
+        // Swap to buttercream frosting image
+        frosting.src = 'images/buttercream_frosting.png';
+        // Adjust position for buttercream
+        frosting.style.transform = 'translateY(10px)';
+        // Reset any filters
+        frosting.style.filter = 'none';
+    } else if (this.value === 'chocolate') {
+        // Swap to chocolate frosting image
+        frosting.src = 'images/chocolate_frosting.png';
+        // Adjust position if needed
+        frosting.style.transform = 'translateY(10px)';
+        // Reset any filters since we're using the actual chocolate image
+        frosting.style.filter = 'none';
+    } else {
+        // Use regular frosting image
+        frosting.src = 'images/cupcake_frosting.png';
+        // Reset the position
+        frosting.style.transform = 'translateY(0)';
+
+        // Apply appropriate color filter based on selection
+        switch (this.value) {
+            case 'special':
+                // Purple Fondant color
+                frosting.style.filter = 'hue-rotate(300deg) saturate(200%)';
+                break;
+        }
     }
 });
 
-// Bread base color change
-document.getElementById('breadType').addEventListener('change', function() {
+// Add this near the top with other constants
+const breadSubTypes = {
+    fruitcake: [
+        'Chups',
+        'Caramels',
+        'Candy',
+        'Soufflé',
+        'Muffin',
+        'Chocolate',
+        'Chupa',
+        'Bar',
+        'Biscuit',
+        'Halvah',
+        'Plum',
+        'Tart',
+        'Claw',
+        'Bear',
+        'Beans',
+        'Macaroon',
+        'Jelly',
+        'Tiramisu',
+        'Canes',
+        'Shortbread',
+        'Lemon',
+        'Dragée',
+        'Sweet',
+        'Carrot',
+        'Bonbon',
+        'Pastry',
+        'Toffee'
+    ],
+    chocolate: [
+        'Truffle',
+        'Fudge',
+        'Dark',
+        'Milk',
+        'White',
+        'Ganache',
+        'Mousse',
+        'Cocoa',
+        "Devil's Food",
+        'German',
+        'Swiss',
+        'Belgian',
+        'Dutch',
+        'Rocky Road',
+        'Triple Chocolate',
+        'Death by Chocolate'
+    ],
+    vanilla: [
+        'Classic',
+        'French',
+        'Madagascar',
+        'Tahitian',
+        'Mexican',
+        'Bean',
+        'Cream',
+        'Sweet Cream',
+        'Royal',
+        'Imperial',
+        'Golden',
+        'White',
+        'Yellow',
+        'Butter'
+    ],
+    berry: [
+        'Strawberry',
+        'Blueberry',
+        'Raspberry',
+        'Blackberry',
+        'Mixed Berry',
+        'Wild Berry',
+        'Forest Fruits',
+        'Berry Blast',
+        'Berry Medley'
+    ],
+    brownie: [
+        'Tootsie',
+        'Danish',
+        'Jellyo',
+        'Bears',
+        'Apple',
+        'Sesame',
+        'Wafer',
+        'Marzipan',
+        'Drops',
+        'Gummi',
+        'Marshmallow',
+        'Sugar',
+        'Cotton',
+        'Jujubes',
+        'Pudding',
+        'Lollipop',
+        'Cookie',
+        'Roll',
+        'Liquorice',
+        'Snaps',
+        'Powder'
+    ]
+};
+
+// Add this function to update the bread sub-type dropdown
+function updateBreadSubType() {
+    const breadType = document.getElementById('breadType').value;
+    const subTypeSelect = document.getElementById('breadSubType');
+
+    // Clear existing options
+    subTypeSelect.innerHTML = '';
+
+    if (breadType && breadSubTypes[breadType]) {
+        // Enable select and add default option
+        subTypeSelect.disabled = false;
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select variety';
+        subTypeSelect.appendChild(defaultOption);
+
+        // Add sub-types for selected bread type
+        breadSubTypes[breadType].forEach((subType) => {
+            const option = document.createElement('option');
+            option.value = subType.toLowerCase().replace(/\s+/g, '_');
+            option.textContent = subType;
+            subTypeSelect.appendChild(option);
+        });
+    } else {
+        // Disable select if no bread type selected
+        subTypeSelect.disabled = true;
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = 'Select bread type first';
+        subTypeSelect.appendChild(option);
+    }
+}
+
+// Update the bread type event listener
+document.getElementById('breadType').addEventListener('change', function () {
     const base = document.querySelector('.cupcake_base');
     switch (this.value) {
         case 'fruitcake':
-            base.style.filter = 'hue-rotate(30deg) saturate(150%) brightness(70%)';
+            // Reddish brown
+            base.style.filter =
+                'hue-rotate(30deg) saturate(150%) brightness(70%)';
             break;
         case 'chocolate':
-            base.style.filter = 'hue-rotate(20deg) saturate(120%) brightness(40%)';
+            // Dark brown
+            base.style.filter =
+                'hue-rotate(20deg) saturate(120%) brightness(40%)';
             break;
         case 'vanilla':
-            base.style.filter = 'hue-rotate(60deg) saturate(20%) brightness(150%)';
+            // Light cream
+            base.style.filter =
+                'hue-rotate(60deg) saturate(20%) brightness(150%)';
             break;
         case 'berry':
-            base.style.filter = 'hue-rotate(320deg) saturate(180%) brightness(80%)';
+            // Deep purple-red
+            base.style.filter =
+                'hue-rotate(320deg) saturate(180%) brightness(80%)';
             break;
         case 'brownie':
-            base.style.filter = 'hue-rotate(30deg) saturate(140%) brightness(30%)';
+            // Dark chocolate brown
+            base.style.filter =
+                'hue-rotate(30deg) saturate(140%) brightness(30%)';
             break;
+    }
+
+    // Update sub-type dropdown
+    updateBreadSubType();
+});
+
+// Add event listener for bread sub-type
+document.getElementById('breadSubType').addEventListener('change', function () {
+    // Apply subtle variations to the base color based on sub-type
+    const base = document.querySelector('.cupcake_base');
+    const breadType = document.getElementById('breadType').value;
+
+    // Add a slight variation to the base color
+    if (this.value) {
+        // Get the index of the selected option
+        const index = this.selectedIndex;
+        // Use the index to create a subtle variation
+        const brightnessAdjust = (index % 5) * 5 - 10; // Range from -10% to +10%
+        const saturationAdjust = (index % 3) * 10 - 10; // Range from -10% to +20%
+
+        // Apply the base filter from bread type, then add the variation
+        switch (breadType) {
+            case 'fruitcake':
+                base.style.filter = `hue-rotate(30deg) saturate(${
+                    150 + saturationAdjust
+                }%) brightness(${70 + brightnessAdjust}%)`;
+                break;
+            case 'chocolate':
+                base.style.filter = `hue-rotate(20deg) saturate(${
+                    120 + saturationAdjust
+                }%) brightness(${40 + brightnessAdjust}%)`;
+                break;
+            case 'vanilla':
+                base.style.filter = `hue-rotate(60deg) saturate(${
+                    20 + saturationAdjust
+                }%) brightness(${150 + brightnessAdjust}%)`;
+                break;
+            case 'berry':
+                base.style.filter = `hue-rotate(${
+                    320 + (index % 40) - 20
+                }deg) saturate(${180 + saturationAdjust}%) brightness(${
+                    80 + brightnessAdjust
+                }%)`;
+                break;
+            case 'brownie':
+                base.style.filter = `hue-rotate(30deg) saturate(${
+                    140 + saturationAdjust
+                }%) brightness(${30 + brightnessAdjust}%)`;
+                break;
+        }
     }
 });
 
 // Wrapper color change
-document.getElementById('wrapperType').addEventListener('change', function() {
+document.getElementById('wrapperType').addEventListener('change', function () {
     const wrapper = document.querySelector('.cupcake_wrapper');
     switch (this.value) {
         case 'red':
-            wrapper.style.filter = 'hue-rotate(345deg) saturate(450%) brightness(65%) contrast(130%)';
+            wrapper.style.filter =
+                'hue-rotate(345deg) saturate(450%) brightness(65%) contrast(130%)';
             break;
         case 'orange':
-            wrapper.style.filter = 'hue-rotate(15deg) saturate(400%) brightness(95%) contrast(140%)';
+            wrapper.style.filter =
+                'hue-rotate(15deg) saturate(400%) brightness(95%) contrast(140%)';
             break;
         case 'yellow':
-            wrapper.style.filter = 'hue-rotate(25deg) saturate(400%) brightness(115%) contrast(130%)';
+            wrapper.style.filter =
+                'hue-rotate(25deg) saturate(400%) brightness(115%) contrast(130%)';
             break;
         case 'green':
-            wrapper.style.filter = 'hue-rotate(85deg) saturate(200%) brightness(90%)';
+            wrapper.style.filter =
+                'hue-rotate(85deg) saturate(200%) brightness(90%)';
             break;
         case 'blue':
-            wrapper.style.filter = 'hue-rotate(180deg) saturate(200%) brightness(100%)';
+            wrapper.style.filter =
+                'hue-rotate(180deg) saturate(200%) brightness(100%)';
             break;
         case 'purple':
-            wrapper.style.filter = 'hue-rotate(260deg) saturate(200%) brightness(90%)';
+            wrapper.style.filter =
+                'hue-rotate(260deg) saturate(200%) brightness(90%)';
             break;
         case 'white':
-            wrapper.style.filter = 'brightness(150%) saturate(0%) contrast(90%)';
+            wrapper.style.filter =
+                'brightness(150%) saturate(0%) contrast(90%)';
             break;
         case 'black':
-            wrapper.style.filter = 'brightness(40%) saturate(0%) contrast(150%)';
+            wrapper.style.filter =
+                'brightness(40%) saturate(0%) contrast(150%)';
             break;
         case 'lightpink':
-            wrapper.style.filter = 'hue-rotate(320deg) saturate(200%) brightness(115%) contrast(110%)';
+            wrapper.style.filter =
+                'hue-rotate(320deg) saturate(200%) brightness(115%) contrast(110%)';
             break;
         case 'darkpurple':
-            wrapper.style.filter = 'hue-rotate(280deg) saturate(400%) brightness(60%) contrast(140%)';
+            wrapper.style.filter =
+                'hue-rotate(280deg) saturate(400%) brightness(60%) contrast(140%)';
             break;
         case 'navyblue':
-            wrapper.style.filter = 'hue-rotate(210deg) saturate(400%) brightness(55%) contrast(140%)';
+            wrapper.style.filter =
+                'hue-rotate(210deg) saturate(400%) brightness(55%) contrast(140%)';
             break;
         case 'darkmagenta':
-            wrapper.style.filter = 'hue-rotate(290deg) saturate(400%) brightness(75%) contrast(130%)';
+            wrapper.style.filter =
+                'hue-rotate(290deg) saturate(400%) brightness(75%) contrast(130%)';
             break;
     }
 });
