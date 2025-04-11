@@ -182,7 +182,35 @@ document.getElementById('frostingType').addEventListener('change', function () {
         frosting.src = 'images/chocolate_frosting.png';
         // Adjust position if needed
         frosting.style.transform = 'translateY(10px)';
-        // Reset any filters since we're using the actual chocolate image
+        // Reset any filters since we're using the actual fudge image
+        frosting.style.filter = 'none';
+    } else if (this.value === 'fudge') {
+        // Swap to fudge frosting image
+        frosting.src = 'images/fudge_frosting.png';
+        // Adjust position if needed
+        frosting.style.transform = 'translateY(20px)';
+        // Reset any filters since we're using the actual fudge image
+        frosting.style.filter = 'none';
+    } else if (this.value === 'whippedcream') {
+        // Swap to whipped cream frosting image
+        frosting.src = 'images/whippedcream_frosting.png';
+        // Adjust position if needed
+        frosting.style.transform = 'translateY(10px)';
+        // Reset any filters since we're using the actual whipped cream image
+        frosting.style.filter = 'none';
+    } else if (this.value === 'creamcheese') {
+        // Swap to creamcheese frosting image
+        frosting.src = 'images/creamcheese_frosting.png';
+        // Adjust position if needed
+        frosting.style.transform = 'translateY(30px)';
+        // Reset any filters since we're using the actual creamcheese image
+        frosting.style.filter = 'none';
+    } else if (this.value === 'lemonmeringue') {
+        // Swap to lemon meringue frosting image
+        frosting.src = 'images/lemonmeringue_frosting.png';
+        // Adjust position if needed
+        frosting.style.transform = 'translateY(20px)';
+        // Reset any filters since we're using the actual lemon meringue image
         frosting.style.filter = 'none';
     } else {
         // Use regular frosting image
