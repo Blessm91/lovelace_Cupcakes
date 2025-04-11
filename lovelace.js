@@ -159,17 +159,54 @@ function display_cupcakes() {
 // Frosting color change
 // Color change functionality
 // Frosting color change
+// First, let's make the custom-cupcake-display larger in general
+document.addEventListener('DOMContentLoaded', function () {
+    // Make the cupcake display area larger
+    const largeContainer = document.querySelector('.large-cupcake');
+    if (largeContainer) {
+        largeContainer.style.width = '400px';
+        largeContainer.style.height = '400px';
+        largeContainer.style.position = 'relative';
+    }
+});
+
+// Then fix the ganache frosting positioning
 document.getElementById('frostingType').addEventListener('change', function () {
     const frosting = document.querySelector('.cupcake_frosting');
 
     // Check if the selected frosting contains "fondant"
     if (this.value.includes('fondant')) {
-        // Swap to blue fondant image
+        // Use blue fondant as base image for all fondant types
         frosting.src = 'images/blue_fondant.png';
         // Lower the fondant image by 20 pixels
         frosting.style.transform = 'translateY(20px)';
-        // Reset any filters
-        frosting.style.filter = 'none';
+
+        // Apply different hue rotations based on fondant color
+        switch (this.value) {
+            case 'pinkfondant':
+                frosting.style.filter =
+                    'hue-rotate(2700deg) saturate(100%) brightness(100%) contrast(100%)';
+                break;
+            case 'purplefondant':
+                frosting.style.filter =
+                    'hue-rotate(2600deg) saturate(200%) brightness(70%) contrast(200%)';
+                break;
+            case 'redfondant':
+                frosting.style.filter =
+                    'hue-rotate(2700deg) saturate(200%) brightness(70%) contrast(200%)';
+                break;
+            case 'whitefondant':
+                frosting.style.filter = 'brightness(150%) saturate(10%)';
+                break;
+            case 'bluefondant':
+                // Show the original blue fondant without white filter
+                frosting.style.filter = 'none';
+                break;
+            default:
+                // Default white fondant (apply white filter to blue fondant)
+                frosting.style.filter = 'brightness(150%) saturate(10%)';
+                break;
+        }
     } else if (this.value === 'buttercream') {
         // Swap to buttercream frosting image
         frosting.src = 'images/buttercream_frosting.png';
@@ -190,6 +227,16 @@ document.getElementById('frostingType').addEventListener('change', function () {
         // Adjust position if needed
         frosting.style.transform = 'translateY(20px)';
         // Reset any filters since we're using the actual fudge image
+        frosting.style.filter = 'none';
+    } else if (this.value === 'ganache') {
+        // Swap to ganache frosting image
+        frosting.src = 'images/ganache_frosting.png';
+        // Adjust position - move down and to the right
+        frosting.style.transform = 'translate(25px, 80px)';
+        // Set the size to 355x355
+        frosting.style.width = '355px';
+        frosting.style.height = '355px';
+        // Reset any filters since we're using the actual image
         frosting.style.filter = 'none';
     } else if (this.value === 'whippedcream') {
         // Swap to whipped cream frosting image
@@ -486,7 +533,7 @@ document.getElementById('wrapperType').addEventListener('change', function () {
             break;
         case 'darkpurple':
             wrapper.style.filter =
-                'hue-rotate(280deg) saturate(400%) brightness(60%) contrast(140%)';
+                'hue-rotate(280deg) saturate(300%) brightness(60%) contrast(150%)';
             break;
         case 'navyblue':
             wrapper.style.filter =
