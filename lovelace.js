@@ -159,18 +159,6 @@ function display_cupcakes() {
 // Frosting color change
 // Color change functionality
 // Frosting color change
-// First, let's make the custom-cupcake-display larger in general
-document.addEventListener('DOMContentLoaded', function () {
-    // Make the cupcake display area larger
-    const largeContainer = document.querySelector('.large-cupcake');
-    if (largeContainer) {
-        largeContainer.style.width = '400px';
-        largeContainer.style.height = '400px';
-        largeContainer.style.position = 'relative';
-    }
-});
-
-// Then fix the ganache frosting positioning
 document.getElementById('frostingType').addEventListener('change', function () {
     const frosting = document.querySelector('.cupcake_frosting');
 
@@ -231,11 +219,13 @@ document.getElementById('frostingType').addEventListener('change', function () {
     } else if (this.value === 'ganache') {
         // Swap to ganache frosting image
         frosting.src = 'images/ganache_frosting.png';
-        // Adjust position - move down and to the right
-        frosting.style.transform = 'translate(25px, 80px)';
-        // Set the size to 355x355
-        frosting.style.width = '355px';
-        frosting.style.height = '355px';
+        // Adjust position if needed
+        frosting.style.transform = 'translateY(50px)';
+        frosting.style.tranform = 'translateX(70px)';
+        // Set the size to 320x320
+        frosting.style.width = '320px';
+        frosting.style.height = '320px';
+
         // Reset any filters since we're using the actual image
         frosting.style.filter = 'none';
     } else if (this.value === 'whippedcream') {
@@ -545,3 +535,19 @@ document.getElementById('wrapperType').addEventListener('change', function () {
             break;
     }
 });
+
+// Add near the top of the file
+function displayRandomCupcake() {
+    const randomIndex = Math.floor(Math.random() * cupcake_data.length);
+    const cupcake = cupcake_data[randomIndex];
+    const nameElement = document.getElementById('randomCupcakeName');
+    nameElement.textContent = `Today's Special: ${cupcake.name}`;
+    
+    // Apply the cupcake's color to the base
+    const base = document.querySelector('.cupcake_base');
+    const [r, g, b] = cupcake.color;
+    base.style.filter = `opacity(0.7) drop-shadow(0 0 0 rgb(${r},${g},${b}))`;
+}
+
+// Add this line after your existing window.onload or at the bottom of the file
+document.addEventListener('DOMContentLoaded', displayRandomCupcake);

@@ -43,20 +43,21 @@ tr:nth-child(even) {
 }
 
 .header {
-    text-align: center;  /* Centers the content */
+    text-align: center; /* Centers the content */
 }
 
 h1 {
     color: var(--primary_dark);
-    font-size: 48px;     /* Larger font size */
-    text-align: center;  /* Centers the header */
+    font-size: 48px; /* Larger font size */
+    text-align: center; /* Centers the header */
     margin-bottom: 30px; /* Adds space below header */
 }
 
-#ada_lovelace, .white_cupcake {
-    display: inline-block;  /* Helps with centering */
+#ada_lovelace,
+.white_cupcake {
+    display: inline-block; /* Helps with centering */
     vertical-align: middle; /* Aligns images */
-    margin: 0 20px;        /* Adds space between images */
+    margin: 0 20px; /* Adds space between images */
 }
 
 #message_area {
@@ -133,19 +134,21 @@ h1 {
 }
 
 .custom-cupcake-display {
-    width: 450px; /* Matches Ada's image size */
+    width: 450px;
     height: 450px;
     margin: 0 auto 30px;
     border: 20px solid var(--primary_medium);
     border-radius: 10px;
     padding: 20px;
     background-color: var(--secondary_light);
+    position: relative; /* Added to establish positioning context */
+    overflow: hidden; /* Added to keep content inside */
 }
 
 .large-cupcake {
-    width: 400px;
-    height: 400px;
-    margin: 25px auto;
+    width: 350px; /* Reduced from 400px */
+    height: 350px; /* Reduced from 400px */
+    margin: 50px auto; /* Adjusted margin */
     position: relative;
     display: flex;
     justify-content: center;
@@ -157,19 +160,21 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    max-width: 350px; /* Added max-width */
+    max-height: 350px; /* Added max-height */
 }
 
-.large-cupcake .cupcake_base {
-    z-index: 1;
+/* Update z-index to match new HTML order */
+.cupcake_frosting {
+    z-index: 3; /* Top layer */
 }
 
-.large-cupcake .cupcake_frosting {
-    z-index: 2;
+.cupcake_wrapper {
+    z-index: 2; /* Middle layer */
 }
 
-.large-cupcake .cupcake_wrapper {
-    z-index: 3;
-    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%); /* This will show only the bottom half */
+.cupcake_base {
+    z-index: 1; /* Bottom layer */
 }
 
 .large-cupcake .cupcake_frosting {
@@ -207,13 +212,13 @@ h1 {
 }
 
 .large-cupcake .wrapper {
-    width: 300px;
-    height: 100px;
+    width: 280px;
+    height: 220px;
     background-color: var(--secondary_light);
     position: absolute;
-    bottom: 0;
-    left: 50px;
-    border-radius: 0 0 30px 30px;
+    bottom: 30px;
+    left: 60px; /* Changed from right: 60px to left: 60px to match the base */
+    border-radius: 30px 30px 80px 80px;
     border: 2px solid var(--secondary_dark);
 }
 
