@@ -541,7 +541,7 @@ function displayRandomCupcake() {
     const randomIndex = Math.floor(Math.random() * cupcake_data.length);
     const cupcake = cupcake_data[randomIndex];
     const nameElement = document.getElementById('randomCupcakeName');
-    nameElement.textContent = `Today's Special: ${cupcake.name}`;
+    nameElement.textContent = `Today's Special: ${cupcake.name} (ID: ${cupcake.id}) - $${cupcake.price}`;
     
     // Apply the cupcake's color to the base
     const base = document.querySelector('.cupcake_base');
