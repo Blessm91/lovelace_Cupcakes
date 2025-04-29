@@ -33,126 +33,134 @@
             />
         </div>
 
-        
-            
-        
         <!-- Add cart section -->
         <!-- After custom cupcake display div -->
-            <div class="display-and-cart">
-                <div class="custom-cupcake-display">
-                    <div class="large-cupcake">
-                        <img class="cupcake_frosting" src="images/cupcake_frosting.png" alt="Cupcake Frosting">
-                        <img class="cupcake_base" src="images/cupcake_base.png" alt="Cupcake Base">
-                        <img class="cupcake_wrapper" src="images/cupcake_wrapper.png" alt="Cupcake Wrapper">
+        <div class="display-and-cart">
+            <div class="custom-cupcake-display">
+                <div class="large-cupcake">
+                    <img
+                        class="cupcake_frosting"
+                        src="images/cupcake_frosting.png"
+                        alt="Cupcake Frosting"
+                    />
+                    <img
+                        class="cupcake_base"
+                        src="images/cupcake_base.png"
+                        alt="Cupcake Base"
+                    />
+                    <img
+                        class="cupcake_wrapper"
+                        src="images/cupcake_wrapper.png"
+                        alt="Cupcake Wrapper"
+                    />
+                </div>
+            </div>
+
+            <!-- Add random cupcake name display -->
+            <div class="random-cupcake-section separator">
+                <h2 id="randomCupcakeName">Loading cupcake...</h2>
+            </div>
+
+            <div class="controls-container">
+                <div class="price-section separator">
+                    <div class="base-price">
+                        <label>Base Price:</label>
+                        <span id="basePrice" class="total_values">$0.00</span>
                     </div>
-                    
-                </div>
-            
-                <!-- Add random cupcake name display -->
-                <div class="random-cupcake-section separator">
-                    <h2 id="randomCupcakeName">Loading cupcake...</h2>
-                </div>
-            
-                <div class="controls-container">
-                    <div class="price-section separator">
-                        <div class="base-price">
-                            <label>Base Price:</label>
-                            <span id="basePrice" class="total_values">$0.00</span>
-                        </div>
-        
-                        <div class="quantity-controls">
-                            <button class="qty-btn" id="decreaseQty">-</button>
-                            <span id="qtyDisplay" class="total_values">1</span>
-                            <button class="qty-btn" id="increaseQty">+</button>
-                        </div>
-        
-                        <div class="total-price">
-                            <label>Total:</label>
-                            <span id="totalPrice" class="total_values">$0.00</span>
-                        </div>
-                        <div id="randomCupcakeName"></div>
+
+                    <div class="quantity-controls">
+                        <button class="qty-btn" id="decreaseQty">-</button>
+                        <span id="qtyDisplay" class="total_values">1</span>
+                        <button class="qty-btn" id="increaseQty">+</button>
+                    </div>
+
+                    <div class="total-price">
+                        <label>Total:</label>
+                        <span id="totalPrice" class="total_values">$0.00</span>
+                    </div>
+                    <div id="randomCupcakeNameDisplay"></div>
                     <button id="addToCartBtn">Add to Cart</button>
                 </div>
-                    </div>
-        
-                    <div class="selection-controls separator">
-                        <div class="frosting-select">
-                            <label for="frostingType">Frosting Type:</label>
-                            <select id="frostingType">
-                                <option value="buttercream">Buttercream</option>
-                                <option value="chocolate">Chocolate</option>
-                                <option value="creamcheese">Cream Cheese</option>
-                                <option value="fudge">Fudge</option>
-                                <option value="ganache">Ganache</option>
-                                <option value="lemonmeringue">Lemon Meringue</option>
-                                <option value="whippedcream">Whipped Cream</option>
-                                <option value="bluefondant">Blue Fondant</option>
-                                <option value="pinkfondant">Pink Fondant</option>
-                                <option value="purplefondant">Purple Fondant</option>
-                                <option value="redfondant">Red Fondant</option>
-                                <option value="whitefondant">White Fondant</option>
-                            </select>
-                        </div>
-        
-                        <div class="bread-select">
-                            <label for="breadType">Bread Type:</label>
-                            <select id="breadType">
-                                <option value="fruitcake">Fruit Cake</option>
-                                <option value="chocolate">Chocolate</option>
-                                <option value="vanilla">Vanilla</option>
-                                <option value="berry">Berry</option>
-                                <option value="brownie">Brownie</option>
-                            </select>
-        
-                            <label for="breadSubType">Variety:</label>
-                            <select id="breadSubType" disabled>
-                                <option value="">Select bread type first</option>
-                            </select>
-                        </div>
-        
-                        <div class="wrapper-select">
-                            <label for="wrapperType">Wrapper Color:</label>
-                            <select id="wrapperType">
-                                <option value="red">Red</option>
-                                <option value="orange">Orange</option>
-                                <option value="yellow">Yellow</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
-                                <option value="purple">Purple</option>
-                                <option value="white">White</option>
-                                <option value="black">Black</option>
-                                <option value="lightpink">Light Pink</option>
-                                <option value="darkpurple">Dark Purple</option>
-                                <option value="navyblue">Deep Dark Blue</option>
-                                <option value="darkmagenta">Dark Magenta</option>
-                            </select>
-                        </div>
-                    </div>
+            </div>
+
+            <div class="selection-controls separator">
+                <div class="frosting-select">
+                    <label for="frostingType">Frosting Type:</label>
+                    <select id="frostingType">
+                        <option value="buttercream">Buttercream</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="creamcheese">Cream Cheese</option>
+                        <option value="fudge">Fudge</option>
+                        <option value="ganache">Ganache</option>
+                        <option value="lemonmeringue">Lemon Meringue</option>
+                        <option value="whippedcream">Whipped Cream</option>
+                        <option value="bluefondant">Blue Fondant</option>
+                        <option value="pinkfondant">Pink Fondant</option>
+                        <option value="purplefondant">Purple Fondant</option>
+                        <option value="redfondant">Red Fondant</option>
+                        <option value="whitefondant">White Fondant</option>
+                    </select>
                 </div>
-        
-                <div class="cart-container">
-                    <h2>Shopping Cart</h2>
-                    <div class="cart-items">
-                        <!-- Cart items will be added here dynamically -->
-                    </div>
-                    <div class="cart-summary">
-                        <div class="cart-subtotal">
-                            <span>Subtotal:</span>
-                            <span id="cartSubtotal">$0.00</span>
-                        </div>
-                        <div class="cart-tax">
-                            <span>Tax (7.5%):</span>
-                            <span id="cartTax">$0.00</span>
-                        </div>
-                        <div class="cart-total">
-                            <span>Total:</span>
-                            <span id="cartTotal">$0.00</span>
-                        </div>
-                        <button id="checkoutBtn">Checkout</button>
-                    </div>
+
+                <div class="bread-select">
+                    <label for="breadType">Bread Type:</label>
+                    <select id="breadType">
+                        <option value="fruitcake">Fruit Cake</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="vanilla">Vanilla</option>
+                        <option value="berry">Berry</option>
+                        <option value="brownie">Brownie</option>
+                    </select>
+
+                    <label for="breadSubType">Variety:</label>
+                    <select id="breadSubType" disabled>
+                        <option value="">Select bread type first</option>
+                    </select>
+                </div>
+
+                <div class="wrapper-select">
+                    <label for="wrapperType">Wrapper Color:</label>
+                    <select id="wrapperType">
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                        <option value="purple">Purple</option>
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="lightpink">Light Pink</option>
+                        <option value="darkpurple">Dark Purple</option>
+                        <option value="navyblue">Deep Dark Blue</option>
+                        <option value="darkmagenta">Dark Magenta</option>
+                    </select>
                 </div>
             </div>
         </div>
+
+        <div class="cart-container">
+            <h2>Shopping Cart</h2>
+            <div class="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="cart-tax">
+                    <span>Tax (7.5%):</span>
+                    <span id="cartTax">$0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+        <!-- Removed extra closing div tag -->
+        <!-- Removed unmatched closing div tag -->
 
         <script src="cupcake.js"></script>
         <script src="lovelace.js"></script>
