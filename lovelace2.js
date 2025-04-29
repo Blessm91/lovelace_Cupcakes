@@ -542,7 +542,7 @@ function displayRandomCupcake() {
     const cupcake = cupcake_data[randomIndex];
     const nameElement = document.getElementById('randomCupcakeName');
     nameElement.textContent = `Today's Special: ${cupcake.name} (ID: ${cupcake.id}) - $${cupcake.price}`;
-    
+
     // Apply the cupcake's color to the base
     const base = document.querySelector('.cupcake_base');
     const [r, g, b] = cupcake.color;
@@ -551,3 +551,14 @@ function displayRandomCupcake() {
 
 // Add this line after your existing window.onload or at the bottom of the file
 document.addEventListener('DOMContentLoaded', displayRandomCupcake);
+// If you had code like:
+document.addEventListener('DOMContentLoaded', function () {
+    // Functions from cupcake.js
+    displayCupcakes();
+});
+
+// Update to:
+document.addEventListener('DOMContentLoaded', function () {
+    // Functions from cupcake2.js
+    displayCupcakes();
+});
